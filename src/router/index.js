@@ -43,6 +43,7 @@ export const constantRoutes = [
     path: '/redirect',
     component: Layout,
     hidden: true,
+    // 子路由
     children: [
       {
         path: '/redirect/:path(.*)',
@@ -50,8 +51,10 @@ export const constantRoutes = [
       }
     ]
   },
+  // login、auth-redirect、404和401页面不使用layout
   {
     path: '/login',
+    // 懒加载
     component: () => import('@/views/login/index'),
     hidden: true
   },
@@ -74,6 +77,7 @@ export const constantRoutes = [
     path: '/',
     component: Layout,
     redirect: '/dashboard',
+    // 这里开始对应的路由都会显示在app-main中
     children: [
       {
         path: 'dashboard',

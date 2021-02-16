@@ -15,6 +15,9 @@ export default {
     cachedViews() {
       return this.$store.state.tagsView.cachedViews
     },
+    // 在router-view上绑定唯一key，来解决不同的path路由到同一组件(component)时，
+    // 默认情况下这两个页面切换时并不会触发 vue 的 created 或者 mounted 钩子的问题
+    // 但是我并没有看出会有什么问题，因为我去掉key切换edit和create时并没有很明显的问题
     key() {
       return this.$route.path
     }
